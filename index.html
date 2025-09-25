@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Video Aspect Ratio Converter</title>
+    <!-- Link external CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎬 Video Aspect Converter</h1>
+        <p class="subtitle">Transform videos using Canvas-based processing</p>
+        
+        <div class="upload-section" id="uploadSection">
+            <h2>📁 Upload Your Video</h2>
+            <p>Drag & drop your video file here or click to browse</p>
+            <button class="upload-button" onclick="document.getElementById('fileInput').click()">
+                Choose Video File
+            </button>
+            <input type="file" id="fileInput" accept="video/*">
+        </div>
+
+        <div class="video-container" id="videoContainer">
+            <video class="video-preview" id="videoPreview" controls crossorigin="anonymous"></video>
+            
+            <div class="video-info" id="videoInfo">
+                <div class="info-card">
+                    <h4>📹 Current Video Info</h4>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <span class="label">Aspect Ratio:</span>
+                            <span class="value" id="currentRatio">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Resolution:</span>
+                            <span class="value" id="currentResolution">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Duration:</span>
+                            <span class="value" id="videoDuration">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">File Size:</span>
+                            <span class="value" id="fileSize">-</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <h3>⚙️ Conversion Settings</h3>
+                <div class="ratio-controls">
+                    <label for="aspectSelect">Aspect Ratio:</label>
+                    <select id="aspectSelect">
+                        <option value="16:9">16:9 (Widescreen)</option>
+                        <option value="4:3">4:3 (Standard)</option>
+                        <option value="1:1">1:1 (Square)</option>
+                        <option value="9:16">9:16 (Vertical)</option>
+                        <option value="21:9">21:9 (Cinematic)</option>
+                    </select>
+                </div>
+                <div class="format-controls">
+                    <label for="formatSelect">Output Format:</label>
+                    <select id="formatSelect">
+                        <option value="mp4">MP4</option>
+                        <option value="webm">WebM</option>
+                    </select>
+                </div>
+                <div class="method-controls">
+                    <label for="methodSelect">Processing Method:</label>
+                    <select id="methodSelect">
+                        <option value="fit">Fit with Padding</option>
+                        <option value="crop">Crop to Fill</option>
+                        <option value="stretch">Stretch to Fit</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="preview-section">
+                <h3>🔍 Preview</h3>
+                <canvas id="previewCanvas"></canvas>
+            </div>
+
+            <button class="convert-button" id="convertButton">
+                🚀 Convert Video
+            </button>
+
+            <div class="progress-section" id="progressSection">
+                <div class="progress-bar">
+                    <div class="progress" id="progress"></div>
+                </div>
+                <p id="progressText">Processing: 0%</p>
+            </div>
+        </div>
+
+        <div class="download-section" id="downloadSection">
+            <h3>🎉 Conversion Complete!</h3>
+            <p>Your video has been successfully converted</p>
+            <div class="converted-info">
+                <p><strong>New Format:</strong> <span id="convertedFormat">MP4</span></p>
+                <p><strong>New Aspect Ratio:</strong> <span id="convertedRatio">-</span></p>
+                <p><strong>Processing Method:</strong> <span id="convertedMethod">-</span></p>
+                <p><strong>File Size:</strong> <span id="convertedSize">-</span></p>
+            </div>
+            <button class="download-button" id="downloadButton">
+                💾 Download Converted Video
+            </button>
+        </div>
+
+        <div class="info">
+            <h4>🛠️ How It Works:</h4>
+            <ul>
+                <li><strong>Canvas Processing:</strong> Uses HTML5 Canvas for frame-by-frame conversion</li>
+                <li><strong>Real-time Preview:</strong> See your changes before converting</li>
+                <li><strong>Smart Cropping:</strong> Intelligent content-aware positioning</li>
+                <li><strong>Audio Preserved:</strong> Maintains original audio track</li>
+                <li><strong>Multiple Formats:</strong> Supports MP4, WebM, and more</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Link external JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
